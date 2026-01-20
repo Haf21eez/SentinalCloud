@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>⚠ Severity Analysis</h2>
+
+<table>
+<tr>
+  <th>User</th>
+  <th>Attack</th>
+  <th>Severity</th>
+</tr>
+
+{% for row in records %}
+<tr>
+  <td>{{ row.user }}</td>
+  <td>{{ row.attack_type }}</td>
+  <td class="sev {{ row.severity|lower }}">{{ row.severity }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

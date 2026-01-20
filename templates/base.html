@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SentinelCloud</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <script>
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+  document.body.className = savedTheme;
+}
+
+function toggleTheme() {
+  document.body.classList.toggle("dark");
+  localStorage.setItem("theme", document.body.className);
+}
+</script>
+
+
+<div class="layout">
+
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar">
+    <h2>🛡 SentinelCloud</h2>
+
+    <a href="/"> Dashboard</a>
+    <a href="/active-attacks"> Active Attacks</a>
+    <a href="/severity">⚠ Severity</a>
+    <a href="/settings">⚙ Settings</a>
+  </aside>
+
+  <!-- RIGHT CONTENT -->
+  <main class="content">
+    {% block content %}{% endblock %}
+  </main>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2> Active Attacks</h2>
+
+<div class="alert-grid">
+{% for row in records %}
+  {% if row.attack_type != 'Benign' %}
+    <div class="alert-card {{ row.color }}">
+      <h4>{{ row.attack_type }}</h4>
+      <p><b>User:</b> {{ row.user }}</p>
+      <p><b>IP:</b> {{ row.ip }}</p>
+      <p><b>Severity:</b> {{ row.severity }}</p>
+    </div>
+  {% endif %}
+{% endfor %}
+</div>
+
+{% endblock %}
